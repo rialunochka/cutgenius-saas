@@ -1,21 +1,18 @@
-from flask import Flask, render_template, send_from_directory
-import pandas as pd
+from flask import Flask, render_template, request
 import os
 
 app = Flask(__name__)
-CSV_FILE = "clips_database.csv"
-CLIPS_FOLDER = "static/clips"
+UPLOAD_FOLDER = "static/uploads"
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@app.route('/')
-def index():
-    if not os.path.exists(CSV_FILE):
-        return "clips_database.csv not found"
-    df = pd.read_csv(CSV_FILE)
-    return render_template("index.html", clips=df.to_dict(orient="records"))
-
-@app.route('/download/<filename>')
-def download(filename):
-    return send_from_directory(CLIPS_FOLDER, filename, as_attachment=True)
+@app.route("/", methods=["GET", "POST"])
+def upload_video():
+    if request.method == "POST":
+        video = request.files["video"]
+        if video:
+            video.save(os.path.join(UPLOAD_FOLDER, video.filename))
+            return render_template("success.html")
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)

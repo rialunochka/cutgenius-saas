@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CutGenius Viewer</title>
+    <title>CutGenius — Upload Video</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; background: #f9f9fb; }
+        h1 { color: #333; }
+        form { margin-top: 40px; }
+        input[type="file"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 16px;
+            background-color: #f7b2e5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .success { margin-top: 20px; color: green; font-weight: bold; }
+    </style>
 </head>
 <body>
-    <h1>My AI Clips</h1>
-    {% if clips %}
-    <table border="1" cellpadding="6">
-        <tr>
-            <th>File</th>
-            <th>Tags</th>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Download</th>
-        </tr>
-        {% for clip in clips %}
-        <tr>
-            <td>{{ clip.file_name }}</td>
-            <td>{{ clip.tags }}</td>
-            <td>{{ clip.category }}</td>
-            <td>{{ clip.created_at }}</td>
-            <td><a href="/download/{{ clip.file_name }}">Download</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    {% else %}
-    <p>No clips found.</p>
-    {% endif %}
+    <h1>Upload Your Video to CutGenius</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/mp4" required><br>
+        <input type="submit" value="Upload">
+    </form>
 </body>
 </html>
