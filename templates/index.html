@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CutGenius Viewer</title>
+</head>
+<body>
+    <h1>My AI Clips</h1>
+    {% if clips %}
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>File</th>
+            <th>Tags</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Download</th>
+        </tr>
+        {% for clip in clips %}
+        <tr>
+            <td>{{ clip.file_name }}</td>
+            <td>{{ clip.tags }}</td>
+            <td>{{ clip.category }}</td>
+            <td>{{ clip.created_at }}</td>
+            <td><a href="/download/{{ clip.file_name }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No clips found.</p>
+    {% endif %}
+</body>
+</html>
