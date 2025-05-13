@@ -74,5 +74,7 @@ def uploads():
     df = pd.read_csv(DATABASE_FILE)
     return render_template("uploads.html", clips=df.to_dict(orient="records"))
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if name == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
