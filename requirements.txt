@@ -1,0 +1,6 @@
+flask
+whisper
+moviepy==1.0.3
+pytube
+pandas
+tqdm==4.64.1
