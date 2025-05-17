@@ -1,11 +1,23 @@
-# CutGenius UI
+# 🎬 CutGenius
 
-## Setup
-1. `npm install`
-2. `npm start`
+**AI-powered video clipping and subtitle translation** tool to generate viral-ready TikToks, YouTube Shorts, and Instagram Reels—faster than ever.
 
-## Structure
-- `src/CutGeniusApp.jsx`: main component
-- `src/index.js`: entry point
-- `src/index.css`: Tailwind imports
-- `public/index.html`: mounting target
+---
+
+### ✨ Features
+
+- 🎞 Upload local or YouTube videos
+- 🧠 Auto-transcribe using Whisper
+- 🌐 Translate subtitles (English, Spanish, Russian, etc.)
+- ✂️ Auto-highlight viral moments
+- 📤 Upload or export clips
+- 💬 Export `.srt` subtitle files
+- 🎨 Beautiful pastel UI with responsive layout
+
+---
+
+### 🚀 Setup
+
+```bash
+npm install
+npm start
