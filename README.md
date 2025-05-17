@@ -21,7 +21,6 @@
 ```bash
 npm install
 npm start
-
 🧱 Structure
 File	Description
 src/CutGeniusApp.jsx	Main app logic (hook up here if not yet)
